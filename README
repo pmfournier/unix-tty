@@ -1,0 +1,53 @@
+This package contains scripts to run Unix V7 on the simh pdp11 emulator, with support for several serial ports
+
+To get started, use the disk in uv7swre.zip, as obtained from http://simh.trailing-edge.com/software.html
+
+
+FIRST BOOT AND SETUP OF THE DISK IMAGE
+
+pdp11 uv7.simh
+@boot
+New Boot, known devices are hp ht rk rl rp tm vt 
+: rl(0,0)rl2unix
+mem = 177856
+# cat /etc/passwd
+root:VwL97VCAx1Qhs:0:1::/:
+daemon:x:1:1::/:
+sys::2:2::/usr/sys:
+bin::3:3::/bin:
+uucp::4:4::/usr/lib/uucp:/usr/lib/uucico
+dmr::7:3::/usr/dmr:
+# mkdir /usr/dmr
+# chown dmr /usr/dmr
+# chgrp 3 /usr/dmr
+# mkdir /tmp
+# chmod 777 /tmp
+# ^D
+
+
+SETUP OF THE TERMINALS
+
+/etc/mknod /dev/tty3 c 0 3
+/etc/mknod /dev/tty4 c 0 4
+...
+ 
+# Update /etc/ttys
+# First character is enabledness (0 or 1)
+# Second character is baud rate type (0 is fine)
+# Rest is file name after "/dev/"
+echo "10tty1" >>/dev/ttys
+
+
+NORMAL BOOT
+
+Once the image has been setup, just boot it using the automatic script.
+
+  ./start
+
+then telnet to the serial port:
+
+  telnet localhost 8000
+
+or connect to real serial port
+
+  nc localhost 8000 >/dev/ttyS0 </dev/ttyS0
