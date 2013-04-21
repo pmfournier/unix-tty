@@ -1,12 +1,32 @@
-This package contains scripts to run Unix V7 on the simh pdp11 emulator, with support for several serial ports
+This package contains scripts to run Unix V7 on the simh pdp11 emulator, with
+support for several serial ports. Make sure you have packages "simh" and
+"expect" installed.
 
-cd v7
-./boot
-...
-# Restricted rights: Use, duplication, or disclosure
-is subject to restrictions stated in your contract with
-Western Electric Company, Inc.
-Thu Sep 22 05:52:08 EDT 1988
+  cd v7
+  ./boot
+  ...
+  # Restricted rights: Use, duplication, or disclosure
+  is subject to restrictions stated in your contract with
+  Western Electric Company, Inc.
+  Thu Sep 22 05:52:08 EDT 1988
 
-login: root
-Password: root
+  login: root
+  Password: root
+  #
+
+Enjoy!
+
+
+Getting more ttys from the host machine:
+
+  $ telnet localhost 2000
+  Trying 127.0.0.1...
+  Connected to localhost.
+  Escape character is '^]'.
+
+
+  Connected to the PDP-11 simulator DLI device, line 0
+
+
+  login: dmr
+  $
