@@ -1,0 +1,45 @@
+This describes how the disk image file was created.
+
+uv7swre.zip comes from http://simh.trailing-edge.com/software.html
+Unix 7th edition manual: http://plan9.bell-labs.com/7thEdMan/
+
+
+v7$ unzip uv7swre.zip unix_v7_rl.dsk                                                                                                                                                                    
+Archive:  uv7swre.zip
+  inflating: unix_v7_rl.dsk          
+v7$ pdp11 uv7.simh
+
+PDP-11 simulator V3.8-1
+Disabling XQ
+Listening on port 2000 (socket 5)
+@boot
+New Boot, known devices are hp ht rk rl rp tm vt 
+: rl(0,0)rl2unix
+mem = 177856
+# mkdir /usr/dmr
+# chown dmr /usr/dmr
+# chgrp 3 /usr/dmr
+# mkdir /tmp
+# chmod 777 /tmp
+# /etc/mknod /dev/tty3 c 0 3
+# /etc/mknod /dev/tty4 c 0 4
+# ed /etc/ttys
+266
+a
+10tty1
+10tty2
+10tty3
+10tty4
+.
+w
+294
+q
+# sync
+# sync
+# 
+Simulation stopped, PC: 002306 (MOV (SP)+,177776)
+uv7.simh> boot
+Too few arguments
+sim> quit
+Goodbye
+

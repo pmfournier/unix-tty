@@ -1,0 +1,14 @@
+set cpu u18
+set cpu idle
+set tto 7b
+attach rl unix_v7_rl.dsk
+
+set dli enable
+set dlo0 7b
+set dlo1 7b
+set dlo2 7b
+set dlo3 7b
+attach dli 2000
+
+boot rl
+boot
