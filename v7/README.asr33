@@ -1,0 +1,11 @@
+To set up the emulator to interact with an ASR-33 on /dev/ttyACM0
+
+nc localhost 2000
+$ stty lcase
+^C
+
+Now connect the serial port and the pdp11
+
+# nc localhost 2000 </dev/ttyACM0 >/dev/ttyACM0
+
+Type return on the ASR-33 to display the prompt.
