@@ -4,4 +4,5 @@ expect "@"; send "boot\r"
 expect ": "; send "rl(0,0)rl2unix\r"
 expect "# "; send "\004"
 #expect "login: "; send "dmr\r"
+send_error "NOTE: escape with ctrl-e\n\n"
 interact
